@@ -1,0 +1,99 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #f3f3f3;
+    --text-muted: #888888;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --accent: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Layout */
+header, section {
+    padding: 120px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* GSAP Initial States */
+.js-hero-item, .js-hero-panel, .js-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* Typography */
+h1 { font-size: 5rem; line-height: 1.1; margin: 0 0 20px 0; font-weight: 500; letter-spacing: -2px;}
+h2 { font-size: 3rem; margin-bottom: 40px; font-weight: 500; letter-spacing: -1px;}
+p { color: var(--text-muted); font-size: 1.1rem; }
+
+/* Buttons */
+.btn {
+    background: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 16px 32px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.btn:hover { transform: scale(1.05); }
+
+/* Glassmorphism Cards */
+.glass-card, .project-card, .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+}
+
+/* Hover Spotlight Effect (Utilizing JS Variables) */
+.glass-card::before, .project-card::before, .stat-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(
+        800px circle at var(--mx, -1000px) var(--my, -1000px), 
+        rgba(255, 255, 255, 0.06), 
+        transparent 40%
+    );
+    z-index: 0;
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+.glass-card *, .project-card *, .stat-card * { position: relative; z-index: 1; }
+
+/* Hero Section */
+.hero { display: flex; align-items: center; justify-content: space-between; min-height: 90vh; }
+.hero-panel { width: 320px; height: 420px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.avatar { width: 120px; height: 120px; border-radius: 50%; background: #222; margin-bottom: 20px; position: relative; overflow: hidden; }
+.avatar-shine { position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent); transform: skewX(-20deg); }
+
+/* Stats & Projects */
+.stats { display: flex; gap: 24px; }
+.stat-card { flex: 1; text-align: center; }
+.stat-card h2 { font-size: 4rem; margin: 0; color: var(--accent); }
+.project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.project-card { min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--border-color); padding: 30px 0; }
+.faq-btn { width: 100%; text-align: left; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 0; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif;}
+.faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0, 1, 0, 1); }
+.faq-content p { padding-top: 20px; margin: 0; }
+.faq-item.open .faq-content { transition: max-height 0.5s ease-in-out; }
+.faq-item.open .icon { transform: rotate(45deg); transition: transform 0.3s ease; }
+.icon { transition: transform 0.3s ease; }

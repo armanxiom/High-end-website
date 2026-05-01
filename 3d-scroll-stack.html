@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extreme 3D Video Stacking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    /* Hardware acceleration for high-res 4K video rendering during GSAP scrub */
+    .stack-card {
+      will-change: transform, filter;
+      transform-origin: center center;
+    }
+  </style>
+</head>
+<body class="bg-black font-sans antialiased">
+
+  <!-- Spacer to allow natural scrolling before hitting the pin -->
+  <div class="h-screen flex flex-col items-center justify-center bg-zinc-950">
+    <p class="text-zinc-500 font-light tracking-[0.3em] uppercase text-sm mb-4">Graphinex Creative</p>
+    <h1 class="text-4xl text-white font-medium tracking-tight">Scroll to view projects</h1>
+  </div>
+
+  <!-- The Scrolljacking 3D Stack Area -->
+  <section class="stack-area relative w-full h-screen bg-black flex items-center justify-center overflow-hidden">
+    <!-- Cards Container -->
+    <div id="cards-container" class="relative w-[90%] max-w-5xl h-[75vh] flex items-center justify-center">
+      <!-- Cards will be injected here via JS to map over local video assets -->
+    </div>
+  </section>
+
+  <!-- Spacer to allow scrolling after the stack -->
+  <div class="h-screen flex items-center justify-center bg-zinc-950">
+    <h1 class="text-4xl text-zinc-500 font-light tracking-widest uppercase">End of Stack</h1>
+  </div>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. Map over video assets from your local folder
+    const projects = [
+      { title: "Silent Ambition", desc: "Cinematic Dark Luxury", video: "./short videos/project1.mp4" },
+      { title: "Ethereal Flow", desc: "4K Motion Graphics", video: "./short videos/project2.mp4" },
+      { title: "Neon Noir", desc: "Visual Effects Integration", video: "./short videos/project3.mp4" },
+      { title: "The Pinnacle", desc: "Extreme 3D Render", video: "./short videos/project4.mp4" }
+    ];
+
+    const container = document.getElementById('cards-container');
+
+    // 2. Generate the HTML structure dynamically
+    projects.forEach((proj, i) => {
+      const cardHTML = `
+        <div class="stack-card absolute inset-0 w-full h-full rounded-[2rem] overflow-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.8)] border border-white/5">
+          <!-- 4K Video Background -->
+          <video src="${proj.video}" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0"></video>
+          
+          <!-- Depth of Field Darkness Overlay (Animated by GSAP) -->
+          <div class="dark-overlay absolute inset-0 bg-black opacity-0 z-10 pointer-events-none"></div>
+          
+          <!-- Gradient to ensure text readability -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 pointer-events-none"></div>
+          
+          <!-- Content -->
+          <div class="relative z-20 p-10 md:p-14 h-full flex flex-col justify-end">
+            <h2 class="text-5xl md:text-6xl font-medium text-white tracking-tighter mb-2 drop-shadow-xl">${proj.title}</h2>
+            <p class="text-zinc-400 text-lg md:text-xl font-light tracking-wide drop-shadow-lg">${proj.desc}</p>
+          </div>
+        </div>
+      `;
+      container.insertAdjacentHTML('beforeend', cardHTML);
+    });
+
+    // 3. GSAP "Extreme Level" 3D Scroll Stacking Logic
+    const cards = gsap.utils.toArray('.stack-card');
+    
+    // Initial setup: Card 1 is perfectly centered, others are hidden directly below the viewport
+    gsap.set(cards, { y: window.innerHeight, scale: 1 });
+    gsap.set(cards[0], { y: 0 });
+
+    // Create the pinning timeline
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.stack-area',
+        start: 'top top',
+        end: `+=${cards.length * 100}%`, // 100% viewport scroll distance per card
+        scrub: 1, // Smoothly tie animation to scrollbar
+        pin: true,
+        anticipatePin: 1
+      }
+    });
+
+    // The compounding 3D calculation
+    cards.forEach((card, index) => {
+      if (index === 0) return; // Skip first card's entrance since it's already in view
+
+      // Slide the new card up from the bottom
+      tl.to(card, { y: 0, duration: 1, ease: 'none' }, index);
+
+      // Push all previously active cards backwards to simulate depth-of-field
+      for (let i = 0; i < index; i++) {
+        const depthFactor = index - i; // Calculates how "far back" the card should go
+        
+        // Compounding Physical 3D transformations
+        tl.to(cards[i], {
+          scale: 1 - (0.05 * depthFactor), // Shrink 5% per level
+          y: -20 * depthFactor,            // Push up 20px per level
+          filter: `blur(${4 * depthFactor}px)`, // Intense cinematic lens blur
+          duration: 1,
+          ease: 'none'
+        }, index);
+
+        // Compounding Shadow/Darkness
+        tl.to(cards[i].querySelector('.dark-overlay'), {
+          opacity: 0.4 * depthFactor, // Max darkness peaks deep in the stack
+          duration: 1,
+          ease: 'none'
+        }, index);
+      }
+    });
+  </script>
+</body>
+</html>

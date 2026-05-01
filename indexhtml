@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphinex Studio — Premium Digital Design</title>
+  <meta name="description" content="Premium portfolio website with smooth GSAP animations, dark luxury UI, and modern sections." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body class="bg-[#070708] text-zinc-50 antialiased overflow-x-hidden">
+
+  <!-- BACKGROUND -->
+  <div class="bg-noise"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- NAV -->
+  <header class="fixed top-0 left-0 right-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-4">
+      <nav class="nav-glass flex items-center justify-between px-4 py-3 md:px-6">
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="logo-mark">
+            <span class="logo-g"></span>
+          </div>
+          <div>
+            <p class="text-sm font-extrabold tracking-[0.18em] uppercase leading-none">Graphinex</p>
+            <p class="text-[11px] text-zinc-400 mt-1">Digital Studio</p>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 text-sm text-zinc-300">
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+        </div>
+
+        <a href="#contact" class="btn btn-dark hidden sm:inline-flex">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="min-h-screen px-4 sm:px-6 lg:px-8 pt-32 md:pt-40 pb-16">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-7">
+            <div class="hero-badge js-hero-item">
+              <span class="badge-dot"></span>
+              Available for premium work
+            </div>
+
+            <h1 class="hero-title js-hero-item">
+              Design that feels
+              <span class="text-zinc-400">alive, sharp</span>
+              and expensive.
+            </h1>
+
+            <p class="hero-copy js-hero-item">
+              We craft modern websites, motion systems, and premium brand experiences with smooth animation,
+              strong hierarchy, and a luxury dark aesthetic.
+            </p>
+
+            <div class="hero-actions js-hero-item">
+              <a href="#projects" class="btn btn-light">View Projects</a>
+              <a href="#contact" class="btn btn-dark">Let's Build</a>
+            </div>
+
+            <div class="hero-metrics js-hero-item">
+              <div class="metric-card">
+                <div class="metric-value"><span class="counter" data-target="61">0</span>+</div>
+                <div class="metric-label">Members in agency</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value"><span class="counter" data-target="120">0</span>+</div>
+                <div class="metric-label">Projects shipped</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value"><span class="counter" data-target="99">0</span>%</div>
+                <div class="metric-label">Client satisfaction</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="hero-panel js-hero-panel">
+              <div class="hero-card-main">
+                <div class="hero-card-top">
+                  <span class="pill">Framer / Web / Motion</span>
+                  <span class="pill pill-green">Live</span>
+                </div>
+
+                <div class="hero-avatar-wrap">
+                  <div class="hero-avatar avatar-front">
+                    <span class="avatar-shine"></span>
+                    <div class="avatar-face">G</div>
+                  </div>
+                  <div class="hero-avatar avatar-back">
+                    <span class="avatar-shine"></span>
+                    <div class="avatar-face">X</div>
+                  </div>
+                </div>
+
+                <div class="hero-card-bottom">
+                  <h2>Graphinex Studio</h2>
+                  <p>Premium UI + smooth motion + modern conversion-focused websites.</p>
+                </div>
+              </div>
+
+              <div class="mini-grid">
+                <div class="mini-card">
+                  <span>01</span>
+                  <p>Luxury UI Systems</p>
+                </div>
+                <div class="mini-card">
+                  <span>02</span>
+                  <p>GSAP Animations</p>
+                </div>
+                <div class="mini-card">
+                  <span>03</span>
+                  <p>Responsive Build</p>
+                </div>
+                <div class="mini-card">
+                  <span>04</span>
+                  <p>Fast Optimization</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section-wrap">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="section-head js-reveal">
+          <p class="section-kicker">Services</p>
+          <h2 class="section-title">Everything needed for a premium digital presence.</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6 mt-12">
+          <article class="glass-card js-reveal">
+            <div class="card-num">01</div>
+            <h3>UI / UX Design</h3>
+            <p>Elegant structures, strong hierarchy, and conversion-ready layouts.</p>
+          </article>
+
+          <article class="glass-card js-reveal">
+            <div class="card-num">02</div>
+            <h3>Motion Design</h3>
+            <p>Stagger, reveal, blur, and scroll-based motion with premium feel.</p>
+          </article>
+
+          <article class="glass-card js-reveal">
+            <div class="card-num">03</div>
+            <h3>Web Development</h3>
+            <p>Clean responsive builds using HTML, Tailwind, JS and GSAP.</p>
+          </article>
+
+          <article class="glass-card js-reveal">
+            <div class="card-num">04</div>
+            <h3>Brand Systems</h3>
+            <p>Logos, color systems, typography, and consistent visual identity.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section-wrap section-alt">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-10 items-start">
+          <div class="lg:col-span-6 js-reveal">
+            <p class="section-kicker">About</p>
+            <h2 class="section-title">Built for people who want their site to feel premium instantly.</h2>
+            <p class="body-copy mt-6">
+              We focus on luxury visual language, performance, and smooth transitions. The result is a website
+              that feels modern, memorable, and polished on every screen size.
+            </p>
+
+            <div class="about-tags">
+              <span>Minimal</span>
+              <span>Luxury</span>
+              <span>Motion-first</span>
+              <span>Responsive</span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div class="stat-card js-reveal">
+                <div class="stat-value"><span class="counter" data-target="5">0</span>+</div>
+                <div class="stat-label">Years experience</div>
+              </div>
+              <div class="stat-card js-reveal">
+                <div class="stat-value"><span class="counter" data-target="30">0</span>+</div>
+                <div class="stat-label">Brand systems</div>
+              </div>
+              <div class="stat-card js-reveal">
+                <div class="stat-value"><span class="counter" data-target="70">0</span>+</div>
+                <div class="stat-label">Landing pages</div>
+              </div>
+              <div class="stat-card js-reveal">
+                <div class="stat-value"><span class="counter" data-target="100">0</span>%</div>
+                <div class="stat-label">Clean delivery</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section-wrap">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="section-head js-reveal">
+          <p class="section-kicker">Selected Work</p>
+          <h2 class="section-title">Projects with strong visual punch.</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-12">
+          <article class="project-card js-reveal">
+            <div class="project-media project-bg-1"></div>
+            <div class="project-info">
+              <p>Brand Identity / Motion</p>
+              <h3>Coral Spiral Abstract</h3>
+            </div>
+          </article>
+
+          <article class="project-card js-reveal">
+            <div class="project-media project-bg-2"></div>
+            <div class="project-info">
+              <p>Website / Product Launch</p>
+              <h3>Luxury Agency Landing</h3>
+            </div>
+          </article>
+
+          <article class="project-card js-reveal">
+            <div class="project-media project-bg-3"></div>
+            <div class="project-info">
+              <p>UI System / Case Study</p>
+              <h3>Midnight Dashboard</h3>
+            </div>
+          </article>
+
+          <article class="project-card js-reveal">
+            <div class="project-media project-bg-4"></div>
+            <div class="project-info">
+              <p>Editorial / Portfolio</p>
+              <h3>Monolith Portfolio Grid</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section-wrap section-alt">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="section-head js-reveal">
+          <p class="section-kicker">Testimonials</p>
+          <h2 class="section-title">Clients love the premium finish.</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6 mt-12">
+          <article class="glass-card js-reveal">
+            <p class="quote">“The motion was incredibly smooth and the layout felt expensive from the first second.”</p>
+            <div class="person">
+              <div class="person-avatar">A</div>
+              <div>
+                <h4>Aarav</h4>
+                <p>Founder</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-card js-reveal">
+            <p class="quote">“The dark aesthetic, spacing, and typography looked very premium and sharp.”</p>
+            <div class="person">
+              <div class="person-avatar">M</div>
+              <div>
+                <h4>Meera</h4>
+                <p>Brand Manager</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-card js-reveal">
+            <p class="quote">“Performance was excellent, and the whole site felt custom-built, not generic.”</p>
+            <div class="person">
+              <div class="person-avatar">R</div>
+              <div>
+                <h4>Rohan</h4>
+                <p>Startup Owner</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-wrap">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="section-head js-reveal">
+          <p class="section-kicker">FAQ</p>
+          <h2 class="section-title">Frequently asked questions.</h2>
+        </div>
+
+        <div class="faq-list mt-12">
+          <div class="faq-item js-reveal">
+            <button class="faq-btn">How long does a website take?</button>
+            <div class="faq-content">
+              Usually 1–3 weeks depending on scope, revisions, and the amount of custom motion needed.
+            </div>
+          </div>
+
+          <div class="faq-item js-reveal">
+            <button class="faq-btn">Can this style work for my brand?</button>
+            <div class="faq-content">
+              Yes. Colors, typography, and motion can be adapted while keeping the same premium feel.
+            </div>
+          </div>
+
+          <div class="faq-item js-reveal">
+            <button class="faq-btn">Do you use real animations?</button>
+            <div class="faq-content">
+              Yes. This build uses GSAP for hero entrance, scroll reveal, counters, and interactive sections.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-wrap section-alt pb-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-10 items-start">
+          <div class="lg:col-span-5 js-reveal">
+            <p class="section-kicker">Contact</p>
+            <h2 class="section-title">Let's build something sharp.</h2>
+            <p class="body-copy mt-6">
+              Share your project details and we’ll turn it into a polished website with smooth motion,
+              clean spacing, and strong visual hierarchy.
+            </p>
+
+            <div class="contact-info">
+              <p><span>Email:</span> hello@graphinex.studio</p>
+              <p><span>Instagram:</span> @graphinex.studio</p>
+              <p><span>Location:</span> India / Remote</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 js-reveal">
+            <form class="contact-form">
+              <div class="grid md:grid-cols-2 gap-4">
+                <input type="text" placeholder="Your name" />
+                <input type="email" placeholder="Email address" />
+              </div>
+              <input type="text" placeholder="Project type" />
+              <textarea rows="6" placeholder="Tell us about your website / brand / idea"></textarea>
+              <button type="submit" class="btn btn-light w-full">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>s
