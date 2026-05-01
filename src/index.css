@@ -32,7 +32,7 @@ header, section {
     /* Maintains 1200px inner centering dynamically */
     padding-left: max(5%, calc((100vw - 1200px) / 2));
     padding-right: max(5%, calc((100vw - 1200px) / 2));
-    background: linear-gradient(to bottom, rgba(5, 5, 5, 0.6), #050505 95%), url('./hero/background.png') center/cover no-repeat;
+    background: linear-gradient(to bottom, rgba(5, 5, 5, 0.6), #050505 95%), url('/hero/background.png') center/cover no-repeat;
 }
 
 /* Typography & Clipping Animations */
@@ -94,7 +94,7 @@ p { color: var(--text-muted); font-size: 1.15rem; }
 /* Hero Section */
 .hero { display: flex; align-items: center; justify-content: space-between; min-height: 90vh; }
 .hero-panel { width: 320px; height: 420px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-.avatar { width: 120px; height: 120px; border-radius: 50%; background: url('./hero/hero-image.jpeg') center/cover; margin-bottom: 20px; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+.avatar { width: 120px; height: 120px; border-radius: 50%; background: url('/hero/hero-image.jpeg') center/cover; margin-bottom: 20px; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
 .avatar-shine { position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent); transform: skewX(-20deg); }
 
 /* Stats & Projects */

@@ -8,22 +8,22 @@ const projectsData = [
   {
     title: "Brand Identity",
     desc: "Graphinex Original",
-    video: "./short videos/vid1.mp4"
+    video: "/short videos/vid1.mp4"
   },
   {
     title: "Motion Graphics",
     desc: "Video Editing Magic",
-    video: "./short videos/vid2.mp4"
+    video: "/short videos/vid2.mp4"
   },
   {
     title: "Web Development",
     desc: "Interactive Experiences",
-    video: "./short videos/vid3.mp4"
+    video: "/short videos/vid3.mp4"
   },
   {
     title: "Digital Marketing",
     desc: "Scaling Brands",
-    video: "./short videos/vid4.mp4"
+    video: "/short videos/vid4.mp4"
   }
 ];
 
